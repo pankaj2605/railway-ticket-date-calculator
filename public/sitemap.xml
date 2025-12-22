@@ -2,17 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://your-domain.com/</loc>
+    <loc>https://railwaydatecalculator.com/</loc>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://your-domain.com/about</loc>
+    <loc>https://railwaydatecalculator.com/about</loc>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://your-domain.com/useful-links</loc>
+    <loc>https://railwaydatecalculator.com/useful-links</loc>
     <priority>0.8</priority>
   </url>
 

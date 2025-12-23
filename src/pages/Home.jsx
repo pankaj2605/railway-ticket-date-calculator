@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import DateSelector from "../components/DateSelector";
 import ReminderCard from "../components/ReminderCard";
+import FAQ from "../components/FAQ";
+import FAQSchema from "../components/FAQSchema";
+
 
 export default function Home() {
   const [journeyDate, setJourneyDate] = useState(null);
@@ -43,6 +46,8 @@ export default function Home() {
 
 
   return (
+    <>
+    <FAQSchema />
    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-200">
 
       <div
@@ -96,8 +101,10 @@ export default function Home() {
 
         <DateSelector onCalculate={handleCalculate} />
         <ReminderCard journeyDate={journeyDate} bookingDate={bookingDate} />
+        <FAQ />
       </div>
     </div>
     </div>
+    </>
   );
 }

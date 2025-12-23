@@ -95,9 +95,7 @@ export default function ReminderCard({ journeyDate, bookingDate }) {
                     <div
                         className="
                         absolute
-                        left-10
-                        top-1/2
-                        -translate-y-1/2
+                        z-10
                         w-72
                         bg-yellow-50
                         border border-yellow-300
@@ -112,7 +110,15 @@ export default function ReminderCard({ journeyDate, bookingDate }) {
                         transition-all duration-200
                         group-hover:opacity-100
                         group-hover:scale-100
-                        z-10
+                        left-1/2
+                        -translate-x-1/2
+                        top-full
+                        mt-2
+                         md:left-10
+                        md:top-1/2
+                        md:mt-0
+                        md:-translate-x-0
+                        md:-translate-y-1/2
                         "
                     >
                         <strong>Important:</strong> Please confirm that the

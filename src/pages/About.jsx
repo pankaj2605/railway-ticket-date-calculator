@@ -41,6 +41,38 @@ export default function About() {
           starts on a different date from the source station, you must select
           the source station start date for accurate booking calculations.
         </p>
+        <h2 className="text-xl font-semibold text-blue-800">
+          About Railway Ticket Booking Dates
+        </h2>
+
+        <p className="text-gray-700 leading-relaxed">
+          Railway ticket booking dates in India are governed by the advance
+          reservation rules defined by Indian Railways. For most train services,
+          passengers are allowed to book tickets up to <strong>60 days in advance</strong>
+          from the journey date, excluding the date of journey.
+        </p>
+
+        <p className="text-gray-700 leading-relaxed">
+          Advance booking typically opens at <strong>8:00 AM IST</strong> on the
+          booking opening day. During peak travel periods such as festivals,
+          holidays, and weekends, ticket availability may get exhausted quickly
+          after booking opens.
+        </p>
+
+        <p className="text-gray-700 leading-relaxed">
+          Understanding the correct booking date is important to avoid long
+          waiting lists or missed reservations. This tool helps simplify that
+          process by automatically calculating the booking opening date based
+          on the standard advance reservation rules.
+        </p>
+
+        <p className="text-gray-700 leading-relaxed">
+          Booking rules and reservation windows may change from time to time
+          as per Indian Railways policies. Passengers are advised to always
+          verify final booking details on official railway websites before
+          making travel arrangements.
+        </p>
+
 
         <h2 className="text-xl font-semibold text-blue-800">
           Disclaimer

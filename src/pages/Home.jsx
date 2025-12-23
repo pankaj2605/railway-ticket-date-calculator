@@ -51,42 +51,46 @@ export default function Home() {
    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-200">
 
       <div
-        className="
-          w-full
-          bg-green-50
-          border-b border-green-200
-          py-4
-          px-4
-          text-center
-        "
-        role="status"
-        aria-live="polite"
-      >
-        <p className="text-green-800 font-bold text-lg md:text-xl" role="status"
-            aria-live="polite">
-          Today you can book tickets for journey dates till {" "}
-          <span
-            className="
-              inline-block
-              ml-2
-              px-3
-              py-1
-              rounded-full
-              bg-green-200
-              text-green-900
-              text-lg md:text-xl
-              font-extrabold
-              shadow-sm
-            "
+          className="
+            sticky top-0 z-50
+            w-full
+            bg-green-50/95
+            backdrop-blur
+            border-b border-green-200
+            py-4
+            px-4
+            text-center
+          "
+          role="status"
+          aria-live="polite"
+        >
+          <p
+            className="text-green-800 font-bold text-lg md:text-xl"
           >
-            {lastBookableDate.toDateString()}
-          </span>
-        </p>
-        {/* ✅ Small info line */}
-        <p className="mt-1 text-xs md:text-sm text-green-700">
-          Booking starts at <strong>8:00 AM</strong>
-        </p>
-      </div>
+            Today you can book tickets for journey dates till{" "}
+            <span
+              className="
+                inline-block
+                ml-2
+                px-3
+                py-1
+                rounded-full
+                bg-green-200
+                text-green-900
+                text-lg md:text-xl
+                font-extrabold
+                shadow-sm
+              "
+            >
+              {lastBookableDate.toDateString()}
+            </span>
+          </p>
+
+          <p className="mt-1 text-xs md:text-sm text-green-700">
+            Booking starts at <strong>8:00 AM</strong>
+          </p>
+        </div>
+
       <div className="flex justify-center px-4 py-8">
       <div className="max-w-md w-full space-y-6">
 

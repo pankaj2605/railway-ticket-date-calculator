@@ -65,8 +65,11 @@ export default function DateSelector({ onCalculate }) {
         <h2 className="text-xl font-semibold text-center">
           Select Journey Date
         </h2>
-
-        <input
+        <label htmlFor="journey-date" className="block text-sm font-medium text-gray-700">
+          Journey Date
+        </label>
+       <input
+          id="journey-date"
           type="date"
           className="border p-2 rounded w-full"
           value={journeyDate}
@@ -88,14 +91,17 @@ export default function DateSelector({ onCalculate }) {
           onClick={() => setShowModal(false)} // 👈 close on outside click
         >
           <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modal-title"
             className="bg-white rounded-lg shadow-lg p-4 w-72 space-y-3"
             onClick={(e) => e.stopPropagation()} // 👈 prevent close on inside click
           >
-            <h3 className="text-sm font-semibold text-red-600">
+            <h3 id="modal-title" className="text-sm font-semibold text-red-600">
               Date Already Passed
             </h3>
 
-            <p className="text-xs text-gray-700 leading-relaxed">
+            <p  className="text-xs text-gray-700 leading-relaxed">
               The booking date calculated from your selected journey date has
               already passed.
               <br />

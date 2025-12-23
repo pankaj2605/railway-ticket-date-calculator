@@ -171,7 +171,7 @@ END:VCALENDAR`;
         disabled={disabled}
         className={`
           w-full flex items-center justify-center gap-2
-          px-4 py-3 rounded-xl font-semibold transition
+          px-4 py-3 rounded-xl font-semibold transition  aria-label="Add booking date to calendar"
           ${
             disabled
               ? "bg-gray-300 text-gray-600 cursor-not-allowed"

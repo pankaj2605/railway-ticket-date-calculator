@@ -33,20 +33,20 @@ export default function ReminderCard({ journeyDate, bookingDate }) {
       <div className="text-sm space-y-1">
         <div className="flex justify-between">
             <span className="font-medium text-gray-700">
-            Booking Opens On
+                Booking Opens On
             </span>
 
             <span className="font-semibold text-blue-900">
-            {openDate.toDateString()}
+                {openDate.toDateString()}
             </span>
         </div>
 
         {/* Add to Calendar - Next Line */}
         <div className="flex justify-end">
             <AddToCalendar
-  title="Railway Ticket Booking Opens"
-  date={openDate}   // must be Date, not string
-/>
+                title="Railway Ticket Booking Opens"
+                date={openDate}   // must be Date, not string
+                />
         </div>
         </div>
 
@@ -81,8 +81,13 @@ export default function ReminderCard({ journeyDate, bookingDate }) {
                         hover:shadow-md
                         "
                     >
-                       <div className="relative group shrink-0">
-                        !
+                       <div
+                          aria-label="Important booking note"
+                          role="button"
+                          tabIndex={0}
+                          className="w-7 h-7 flex items-center justify-center rounded-full bg-red-200"
+                        >
+                          !
                         </div>
                     </div>
 

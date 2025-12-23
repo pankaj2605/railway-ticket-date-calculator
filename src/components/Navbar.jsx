@@ -15,13 +15,19 @@ export default function Navbar() {
             </Link>
           </li>
           <li>
-            <Link to="/about" className="hover:text-yellow-300">
-              About
+            <Link to="/pnr-status" className="hover:text-yellow-300">
+              PNR Status
             </Link>
           </li>
+          
           <li>
             <Link to="/useful-links" className="hover:text-yellow-300">
               Useful Links
+            </Link>
+          </li>
+          <li>
+            <Link to="/about" className="hover:text-yellow-300">
+              About
             </Link>
           </li>
         </ul>

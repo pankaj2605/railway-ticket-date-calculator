@@ -22,6 +22,7 @@ export default function UsefulLinks() {
           >
             <h2 className="font-semibold text-blue-800">
               IRCTC Official Website
+              <span aria-hidden="true">↗</span>
             </h2>
             <p className="text-sm text-gray-600">
               Official Indian Railways ticket booking portal
@@ -36,6 +37,7 @@ export default function UsefulLinks() {
           >
             <h2 className="font-semibold text-blue-800">
               MakeMyTrip – Railways
+              <span aria-hidden="true">↗</span>
             </h2>
             <p className="text-sm text-gray-600">
               Book train tickets with offers and wallet options
@@ -50,6 +52,7 @@ export default function UsefulLinks() {
           >
             <h2 className="font-semibold text-blue-800">
               ConfirmTkt
+              <span aria-hidden="true">↗</span>
             </h2>
             <p className="text-sm text-gray-600">
               Train ticket booking with PNR prediction support
@@ -64,6 +67,7 @@ export default function UsefulLinks() {
           >
             <h2 className="font-semibold text-blue-800">
               EaseMyTrip – Railways
+              <span aria-hidden="true">↗</span>
             </h2>
             <p className="text-sm text-gray-600">
               Railway booking with deals and easy UI
@@ -78,11 +82,27 @@ export default function UsefulLinks() {
           >
             <h2 className="font-semibold text-blue-800">
               ixigo Trains
+              <span aria-hidden="true">↗</span>
             </h2>
             <p className="text-sm text-gray-600">
               Train search, PNR status, and booking assistance
             </p>
           </a>
+          <a
+            href="https://www.indianrail.gov.in/enquiry/PNR/PnrEnquiry.html?locale=en"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block border rounded-lg p-4 hover:bg-blue-50 transition"
+          >
+            <h2 className="font-semibold text-blue-800 flex items-center gap-1">
+              Check PNR Status
+              <span aria-hidden="true">↗</span>
+            </h2>
+            <p className="text-sm text-gray-600">
+              Opens the official Indian Railways PNR enquiry page (external website)
+            </p>
+          </a>
+
 
         </div>
 

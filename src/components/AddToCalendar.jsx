@@ -109,6 +109,8 @@ import { useEffect, useRef, useState } from "react";
 export default function AddToCalendar({ title, date, disabled = false }) {
   const [open, setOpen] = useState(false);
   const wrapperRef = useRef(null);
+  const [clicked, setClicked] = useState(false);
+
 
   // 🛑 Safety check
   if (!date || !(date instanceof Date)) return null;
@@ -124,6 +126,11 @@ export default function AddToCalendar({ title, date, disabled = false }) {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
+  useEffect(() => {
+  // Reset button when journey / booking date changes
+      setClicked(false);
+      setOpen(false);
+    }, [date]);
 
   const formatDate = (d) => {
     const y = d.getFullYear();
@@ -135,22 +142,28 @@ export default function AddToCalendar({ title, date, disabled = false }) {
   const start = formatDate(date);
 
   const googleUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(
-    title
-  )}&dates=${start}/${start}&details=Railway ticket booking opens today`;
+    "Reminder to book railway ticket"
+  )}&dates=${start}T070000/${start}T080000&details=${encodeURIComponent(
+    "Reminder to book railway ticket. Booking opens at 8:00 AM."
+  )}`;
+
 
   const outlookUrl = `https://outlook.live.com/calendar/0/deeplink/compose?subject=${encodeURIComponent(
-    title
-  )}&startdt=${date.toISOString()}`;
+      "Reminder to book railway ticket"
+    )}&startdt=${start}T07:00:00&enddt=${start}T08:00:00&body=${encodeURIComponent(
+      "Reminder to book railway ticket. Booking opens at 8:00 AM."
+    )}`;
+
 
   const icsData = `BEGIN:VCALENDAR
-VERSION:2.0
-BEGIN:VEVENT
-SUMMARY:${title}
-DTSTART:${start}T090000
-DTEND:${start}T100000
-DESCRIPTION:Railway ticket booking opens today
-END:VEVENT
-END:VCALENDAR`;
+  VERSION:2.0
+  BEGIN:VEVENT
+  SUMMARY:${title}
+  DTSTART:${start}T070000
+  DTEND:${start}T080000
+  DESCRIPTION:Reminder to book railway ticket. Booking opens at 8:00 AM.
+  END:VEVENT
+  END:VCALENDAR`;
 
   const downloadICS = () => {
     const blob = new Blob([icsData], { type: "text/calendar;charset=utf-8" });
@@ -167,20 +180,29 @@ END:VCALENDAR`;
     <div ref={wrapperRef} className="relative w-full">
       {/* Main Button */}
       <button
-        onClick={() => !disabled && setOpen((prev) => !prev)}
-        disabled={disabled}
-        className={`
-          w-full flex items-center justify-center gap-2
-          px-4 py-3 rounded-xl font-semibold transition  aria-label="Add booking date to calendar"
-          ${
-            disabled
-              ? "bg-gray-300 text-gray-600 cursor-not-allowed"
-              : "bg-emerald-600 text-white hover:bg-emerald-700 hover:shadow-md"
-          }
-        `}
-      >
-        📅 Add to Calendar
-      </button>
+          onClick={() => {
+            if (!disabled) {
+              setOpen((prev) => !prev);
+              
+            }
+          }}
+          disabled={disabled}
+          aria-label="Add booking reminder to calendar"
+          className={`
+            w-full flex items-center justify-center gap-2
+            px-4 py-3 rounded-xl font-semibold transition
+            ${
+              disabled
+                ? "bg-gray-300 text-gray-600 cursor-not-allowed"
+                : clicked
+                ? "bg-emerald-700 text-white"
+                : "bg-emerald-600 text-white hover:bg-emerald-700 hover:shadow-md"
+            }
+          `}
+        >
+          📅 {clicked ? "Reminder Added" : "Add Booking Reminder"}
+        </button>
+
 
       {/* Popup */}
       {open && !disabled && (
@@ -189,7 +211,10 @@ END:VCALENDAR`;
             href={googleUrl}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => setOpen(false)} // ✅ close on click
+            onClick={() => {
+                            setClicked(true);   // ✅ reminder actually added
+                            setOpen(false);
+                          }} // ✅ close on click
             className="block px-4 py-2 hover:bg-gray-100"
           >
             📅 Google Calendar
@@ -199,14 +224,20 @@ END:VCALENDAR`;
             href={outlookUrl}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => setOpen(false)} // ✅ close on click
+            onClick={() => {
+                            setClicked(true);   // ✅ reminder actually added
+                            setOpen(false);
+                          }} // ✅ close on click
             className="block px-4 py-2 hover:bg-gray-100"
           >
             🟦 Outlook 365
           </a>
 
           <button
-            onClick={downloadICS}
+            onClick={() => {
+                            downloadICS();      // already closes popup
+                            setClicked(true);   // ✅ reminder actually added
+                          }}
             className="w-full text-left px-4 py-2 hover:bg-gray-100"
           >
             🍎 Apple iCalendar

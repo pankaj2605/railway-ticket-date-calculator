@@ -1,5 +1,15 @@
+import { Helmet } from "react-helmet-async";
+
+
 export default function UsefulLinks() {
   return (
+    <>
+      <Helmet>
+        <link
+          rel="canonical"
+          href="https://railwaydatecalculator.com/useful-links"
+        />
+      </Helmet>
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 px-4 py-10">
       <div className="max-w-3xl mx-auto bg-white rounded-2xl shadow-lg p-6 space-y-6">
 
@@ -117,5 +127,6 @@ export default function UsefulLinks() {
 
       </div>
     </div>
+    </>
   );
 }

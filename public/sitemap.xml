@@ -7,13 +7,18 @@
   </url>
 
   <url>
+    <loc>https://railwaydatecalculator.com/useful-links</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://railwaydatecalculator.com/about</loc>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://railwaydatecalculator.com/useful-links</loc>
-    <priority>0.8</priority>
+    <loc>https://railwaydatecalculator.com/pnr-status</loc>
+    <priority>0.7</priority>
   </url>
 
 </urlset>
